@@ -1,0 +1,37 @@
+body{
+    text-align: center;
+    margin: 24px;
+}
+.punteggio{
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.griglia{
+    display: grid;
+    justify-content: center;
+    margin: auto;
+}
+.cellblock{
+    align-items: center;
+    background-color: bisque;
+    cursor: pointer;
+    width: 130px;
+    height: 130px;
+    border: 2px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+}
+.cellblock-onclick{
+    background-color: #4CAF50;
+    color: whitesmoke;
+}
+.iniziogioco{
+    margin: 20px;
+    margin-top: 25px;
+    font-size: 18px;
+    background-color: aqua;
+    border: none;
+    border-radius: 5px;
+
+}
