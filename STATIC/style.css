@@ -1,15 +1,24 @@
 body{
     text-align: center;
     margin: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.punti{
+    font-size: 90px;
 }
 .punteggio{
-    font-size: 25px;
+    font-size: 50px;
     margin-bottom: 25px;
 }
 .griglia{
     display: grid;
+    grid-template-columns: 130px 130px 130px 130px;
+    grid-template-rows: 130px 130px 130px 130px;
     justify-content: center;
+    gap: 10px;
+    justify-items: center;
     margin: auto;
+
 }
 .cellblock{
     align-items: center;
@@ -21,6 +30,8 @@ body{
     border-color: black;
     display: flex;
     justify-content: center;
+    border-radius: 10px;
+
 }
 .cellblock-onclick{
     background-color: #4CAF50;
@@ -33,5 +44,12 @@ body{
     background-color: aqua;
     border: none;
     border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
 
+
+}
+
+.iniziogioco:hover{
+    background-color: turquoise;
 }
