@@ -32,9 +32,8 @@ function attivacella() {
 
         if (celleattive >= celle.length) {
             celleattive = 0;
-        }
 
-        // Modifica qui per assegnare la cella da accendere
+        }    
         activecellblock = celle[celleattive];
         activecellblock.classList.add('active');
         activecellblock.classList.add('cellblock-attiva');
