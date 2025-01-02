@@ -1,51 +1,55 @@
-//Test per la comunicazione della pagina HTML e il file Javascript
 console.log("Javascript è stato caricato correttamente");
-//Variabili del gioco
-let punteggio  = 0;
+
+let punteggio = 0;
 let temporimasto = 30;
 let celle = document.querySelectorAll('.cellblock');
 let punteggiostampato = document.querySelector('.punti');
-let decremento = -1;
-let activecellblock
-//Inizio del gioco
-let pulsante = document.querySelector('#Inizia')
-pulsante.addEventListener('click', function(){
-    punteggio = 0;
-    temporimasto = 30;
-    punteggiostampato.textContent = punteggio;
-    let timer = setInterval(function() {
-        temporimasto --;
-        if(temporimasto <=0){
-            clearInterval(timer);
-            punteggiostampato.textContent = "TEMPO SCADUTO!!!";
+let temporimanentestampato = document.querySelector('.tempo');
+let activecellblock = null;
+let celleattive = 0;
+
+function aggiornatempo() {
+    if (temporimasto > 0) {
+        temporimasto--;
+        temporimanentestampato.textContent = temporimasto;
+        setTimeout(aggiornatempo, 1000);
+    } else {
+        temporimanentestampato.textContent = "Tempo esaurito";
+        console.log("L'utente ha perso");
+        if (activecellblock) {
+            activecellblock.classList.remove('active');
+            activecellblock.classList.remove('cellblock-attiva');
         }
-    }, 1000);
-let celltimer = setInterval(function() {
-    if(activecellblock <=0)
+    }
+}
 
+function attivacella() {
+    if (temporimasto > 0) {
+        if (activecellblock) {
+            activecellblock.classList.remove('active');
+            activecellblock.classList.remove('cellblock-attiva');
+        }
 
+        if (celleattive >= celle.length) {
+            celleattive = 0;
+        }
 
+        // Modifica qui per assegnare la cella da accendere
+        activecellblock = celle[celleattive];
+        activecellblock.classList.add('active');
+        activecellblock.classList.add('cellblock-attiva');
 
+        activecellblock.onclick = function () {
+            punteggio = punteggio + 1;
+            console.log(punteggio);
 
+            activecellblock.classList.remove('active');
+            activecellblock.classList.remove('cellblock-attiva');
+            activecellblock.onclick = null;
+            punteggiostampato.textContent = punteggio;
+        }
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
+aggiornatempo();
+attivacella();
